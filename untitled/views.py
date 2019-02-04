@@ -20,12 +20,12 @@ class FileUploadView(APIView):
 
     def put(self, request, filename, format=None):
         file_obj = request.data['file']
-        path = default_storage.save('E:\\untitled\\1.rar', ContentFile(file_obj.read()))
-        os.mkdir("E:\\untitled\\img")
-        Archive('E:\\untitled\\1.rar').extractall('E:\\untitled\\img')
-        os.remove("E:\\untitled\\1.rar")
-        classificate_all('E:\\untitled\\img')
-        shutil.rmtree("E:\\untitled\\img")
+        path = default_storage.save('1.rar', ContentFile(file_obj.read()))
+        os.mkdir("img")
+        Archive('1.rar').extractall('img')
+        os.remove("1.rar")
+        classificate_all('img')
+        shutil.rmtree("img")
         return Response(status=200, data=getResultData())
 
 

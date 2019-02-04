@@ -50,10 +50,10 @@ def neuron_network_classification(image_path, file):
     image_data = tf.gfile.FastGFile(image_path, 'rb').read()
 
     # загружает выбранный файл и удаляет символ разрыва строки
-    label_lines = [line.rstrip() for line in tf.gfile.GFile("E:\\untitled\\untitled\\retrained_labels.txt")]
+    label_lines = [line.rstrip() for line in tf.gfile.GFile("untitled\\retrained_labels.txt")]
 
     # получить граф из файла
-    with tf.gfile.FastGFile("E:\\untitled\\untitled\\retrained_graph.pb", 'rb') as f:
+    with tf.gfile.FastGFile("untitled\\retrained_graph.pb", 'rb') as f:
         graph_def = tf.GraphDef()
         graph_def.ParseFromString(f.read())
         _ = tf.import_graph_def(graph_def, name='')
